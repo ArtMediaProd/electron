@@ -35,6 +35,9 @@ class JavascriptEnvironment {
 
   node::MultiIsolatePlatform* platform() const { return platform_.get(); }
   v8::Isolate* isolate() const { return isolate_; }
+  v8::Local<v8::Context> context() const {
+    return isolate_->GetCurrentContext();
+  }
 
   static v8::Isolate* GetIsolate();
 
